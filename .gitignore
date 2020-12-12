@@ -1,0 +1,38 @@
+# Eclipse
+.classpath
+.project
+.settings
+.springBeans
+
+# IntelliJ
+.idea
+*.ipr
+*.iws
+*.iml
+out
+
+# Mac
+.DS_Store
+
+# Gradle
+.gradle
+log
+target
+build
+**/target/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+classes
+
+logs
+
+hibernate/*
+lib/*
+*/src/generated
+
+*/*.log
+/*.log
+/*.gz
+/*.tmp
+/*/*.log.*.gz

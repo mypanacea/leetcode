@@ -6,8 +6,8 @@ public class Solution645 {
         int dup = 0;
         int miss = 0;
         int temp[] = new int[nums.length + 1];
-        for (int i = 0; i < nums.length; i++ ){
-            temp[nums[i]] = ++temp[nums[i]];
+        for (final int num : nums) {
+            temp[num] = ++temp[num];
         }
         for (int i = 0; i < temp.length; i ++){
             if (temp[i] == 0){

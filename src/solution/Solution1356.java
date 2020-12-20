@@ -3,8 +3,6 @@ package solution;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 public class Solution1356 {
@@ -25,7 +23,6 @@ public class Solution1356 {
 	}
 
 	public static void main(String[] args) {
-		Map map = new ConcurrentHashMap();
 		System.out.println(sortByBits(new int[]{1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1}));
 	}
 

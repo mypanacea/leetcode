@@ -1,47 +1,25 @@
 package solution;
 
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Arrays;
 
 public class Solution0 {
 
-    public volatile AtomicBoolean isStopped = new AtomicBoolean(false);
+	public static void main(String[] args) throws InterruptedException {
+		Boolean[] arr = new Boolean[]{
+				true, true, true, false,
+				true, true, true, true,
+				true, false, true, false,
+				true, false, false, true,
+				true, true, true, true,
+				false, false, true, true
+		};
+		System.out.println(solution(arr));
+	}
 
-    public AtomicInteger count = new AtomicInteger(0);
-
-    public static void main(String[] args) throws InterruptedException {
-        Solution0 test = new Solution0();
-
-        Thread writerThread = new Thread(() -> {
-            while (!test.isStopped.get()) {
-                test.count.incrementAndGet();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        Thread readerThread = new Thread(() -> {
-            while (!test.isStopped.get()) {
-                System.out.println("Counter :" + test.count.get());
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        writerThread.start();
-        readerThread.start();
-
-        Thread.sleep(4000);
-
-        test.isStopped.getAndSet(true);
-        writerThread.join();
-        readerThread.join();
-    }
+	public static int solution(final Boolean[] input) {
+		return (int) Arrays
+				.stream(input, 0, input.length)
+				.filter(b -> b != null && b)
+				.count();
+	}
 }

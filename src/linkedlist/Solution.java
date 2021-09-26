@@ -1,6 +1,7 @@
 package linkedlist;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Solution {
@@ -49,6 +50,8 @@ public class Solution {
 	}
 
 	public void addAtTail(ListNode source, int val) {
+		HashMap<String,String> map=new HashMap<>();
+		new ArrayList<>(map.keySet());
 		ListNode iter = source;
 		while (iter.next != null) {
 			iter = iter.next;

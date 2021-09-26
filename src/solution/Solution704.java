@@ -1,5 +1,6 @@
 package solution;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Solution704 {
@@ -25,6 +26,10 @@ public class Solution704 {
     }
 
     public static void main(String[] args) {
+        System.out.println(new BigDecimal("1.0"));
+        System.out.println(new BigDecimal("1.00"));
+        System.out.println(new BigDecimal("1.0").equals(new BigDecimal("1.00")));
+        System.out.println(new BigDecimal("1.0").compareTo(new BigDecimal("1.00")));
         System.out.println(search(new int[]{-1, 0, 3, 5, 9, 12}, 3));
     }
 }

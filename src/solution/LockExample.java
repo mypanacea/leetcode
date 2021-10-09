@@ -1,27 +1,27 @@
 package solution;
 
-import java.math.BigDecimal;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LockExample {
 
-	private static final Logger logger = Logger.getLogger("LockExample");
+	@Service
+	public class ServiceTest {
 
-	public static void main(String[] args) {
-		for (int i = 0; i < 20; i++) {
-
-			BigDecimal threadNumber = new BigDecimal(i);
-
-			Runnable r = () -> {
-				logger.info("thread execution started.");
-				try {
-					Thread.sleep(1000 * 30);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				logger.info("thread execution ended.");
-			};
-			new Thread(r, "thread-nb-" + threadNumber).start();
+		@Transactional
+		public void test1 {
+			test2();
 		}
+
+		@Transactional(propagation = Propagation.REQUIRES_NEW)
+		public void test2() {
+		}
+
 	}
+
 }

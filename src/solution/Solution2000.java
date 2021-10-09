@@ -1,5 +1,10 @@
 package solution;
-//both of these solutions are faster than 100% but solution with loop required a bit more memory
+
+import java.util.Hashtable;
+import java.util.List;
+import java.util.stream.Collectors;
+
+//both of these solutions are faster than 100% but a solution with a loop required a bit more memory
 public class Solution2000 {
 
 	public static String reversePrefix(String word, char ch) {

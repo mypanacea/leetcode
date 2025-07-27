@@ -4,7 +4,7 @@ public class Solution141 {
 
     public class Solution {
 
-        public boolean hasCycle(ListNode head) {
+        public static boolean hasCycle(ListNode head) {
             if (head == null) {
                 return false;
             }
@@ -22,9 +22,12 @@ public class Solution141 {
 
             return true;
         }
+
     }
 
-    class ListNode {
+
+
+   static class ListNode {
 
         int val;
 
@@ -33,6 +36,11 @@ public class Solution141 {
         ListNode(int x) {
             val = x;
             next = null;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
         }
     }
 }

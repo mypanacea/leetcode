@@ -4,22 +4,25 @@ public class Solution1342 {
 
 	public static int numberOfSteps(int num) {
 		int retVal = 0;
+		int op = 0;
 		while (num != 0) {
-			if ((num ^ 1) != num + 1) {
-				num--;
+			if (num == 1) {
+				retVal++;
+				break;
+			}
+			if ((num & 1) == 1) {
+				op++;
+				retVal++;
+			} else {
 				retVal++;
 			}
-			if (num == 0) {
-				continue;
-			}
 			num = num >> 1;
-			retVal++;
 		}
 
-		return retVal;
+		return retVal + op;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(numberOfSteps(8));
+		System.out.println(numberOfSteps(14));
 	}
 }

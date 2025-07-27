@@ -1,22 +1,28 @@
 package solution;
 
+import java.util.Arrays;
+
 public class Solution476 {
 	public static int findComplement(int num) {
-		boolean startIndex = false;
-		for(int i = 31; i >= 0; i --){
-			if((num & (1 << i)) == 0 && !startIndex){
-				continue;
-			}else{
-				num = num ^ (1 << i);
-				startIndex = true;
+		int[] arr = new int[32];
+		Arrays.fill(arr, 9);
+		int j = 0;
+		while (num != 0) {
+			arr[j] = (num & 1) ^ 1;
+			num = num >>1;
+			j++;
+		}
+		int retVal = 0;
+		for (int i = 0; i < 31; i++) {
+			if (arr[i] == 1){
+				retVal = retVal + (int) Math.pow(2, i);
 			}
-
 		}
 
-		return num;
+		return retVal;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(findComplement(5));
+		System.out.println(findComplement(1));
 	}
 }

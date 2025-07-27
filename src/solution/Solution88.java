@@ -2,20 +2,31 @@ package solution;
 
 public class Solution88 {
 
-    public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int temp = 0;
-        for (int i = 0; i < n; i ++){
-            if (nums2[n -1 - i] > nums1[m - 1 - temp]){
-                nums1[m + n - 1 - i] = nums2[n -1 - i];
-            }else {
-                nums1[m + n - 1 - i] = nums1[m - 1 - temp];
-                nums1[m - 1 - temp] = nums2[n -1 - i];
-                temp++;
-            }
-        }
-    }
+	public static void merge(int[] nums1, int m, int[] nums2, int n) {
+		if (m == 0 && n > 0) {
+			System.arraycopy(nums2, 0, nums1, 0, n);
+		}
+		int tempM = m - 1;
+		int tempN = n - 1;
+		for (int i = nums1.length - 1; i >= 0; i--) {
+			if (tempN < 0) {
+				break;
+			}
+			if (tempM < 0) {
+				System.arraycopy(nums2, 0, nums1, 0, tempN + 1);
+				continue;
+			}
+			if (nums1[tempM] > nums2[tempN]) {
+				nums1[i] = nums1[tempM];
+				tempM--;
+			} else {
+				nums1[i] = nums2[tempN];
+				tempN--;
+			}
+		}
+	}
 
-    public static void main(String[] args) {
-        merge(new int[]{1, 2, 3, 0, 0, 0}, 3, new int[]{2, 5, 6}, 3);
-    }
+	public static void main(String[] args) {
+		merge(new int[]{2, 0}, 1, new int[]{1}, 1);
+	}
 }
